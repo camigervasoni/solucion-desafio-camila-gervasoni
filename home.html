@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restaurant Agent Chat by Symmetrie</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .chat-container {
+                width: 90%;
+                max-width: 800px;
+                height: 90vh;
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .chat-header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-size: 1.2em;
+                font-weight: 600;
+            }
+
+            .chat-messages {
+                flex: 1;
+                overflow-y: auto;
+                padding: 20px;
+                background: #f8f9fa;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .message {
+                display: flex;
+                align-items: flex-end;
+                gap: 10px;
+                max-width: 80%;
+                animation: fadeIn 0.3s ease-in;
+            }
+
+            .message.user {
+                align-self: flex-end;
+                flex-direction: row-reverse;
+            }
+
+            .message.bot {
+                align-self: flex-start;
+            }
+
+            .message-bubble {
+                padding: 12px 16px;
+                border-radius: 18px;
+                word-wrap: break-word;
+                line-height: 1.4;
+            }
+
+            .message.user .message-bubble {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-bottom-right-radius: 4px;
+            }
+
+            .message.bot .message-bubble {
+                background: white;
+                color: #333;
+                border: 1px solid #e1e5e9;
+                border-bottom-left-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .message-avatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+
+            .message.user .message-avatar {
+                background: #667eea;
+                color: white;
+            }
+
+            .message.bot .message-avatar {
+                background: #f1f3f4;
+                color: #5f6368;
+            }
+
+            .chat-input-container {
+                padding: 20px;
+                background: white;
+                border-top: 1px solid #e1e5e9;
+            }
+
+            .chat-input-form {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .chat-input {
+                flex: 1;
+                padding: 12px 16px;
+                border: 2px solid #e1e5e9;
+                border-radius: 25px;
+                font-size: 16px;
+                outline: none;
+                transition: border-color 0.2s ease;
+            }
+
+            .chat-input:focus {
+                border-color: #667eea;
+            }
+
+            .send-button {
+                padding: 12px 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border: none;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .send-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
+
+            .send-button:active {
+                transform: translateY(0);
+            }
+
+            .send-button:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                transform: none;
+            }
+
+            .typing-indicator {
+                display: none;
+                align-items: center;
+                gap: 8px;
+                color: #666;
+                font-style: italic;
+                margin-left: 42px;
+            }
+
+            .typing-dots {
+                display: flex;
+                gap: 4px;
+            }
+
+            .typing-dot {
+                width: 6px;
+                height: 6px;
+                background: #666;
+                border-radius: 50%;
+                animation: typing 1.4s infinite ease-in-out;
+            }
+
+            .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+            .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+            @keyframes typing {
+                0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+                40% { transform: scale(1); opacity: 1; }
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .restaurant-list {
+                margin-top: 10px;
+            }
+
+            .restaurant-item {
+                background: rgba(102, 126, 234, 0.1);
+                border-radius: 8px;
+                padding: 8px 12px;
+                margin: 4px 0;
+                border-left: 3px solid #667eea;
+            }
+
+            .restaurant-name {
+                font-weight: 600;
+                color: #333;
+            }
+
+            .restaurant-details {
+                font-size: 0.9em;
+                color: #666;
+                margin-top: 2px;
+            }
+
+            /* Scrollbar styling */
+            .chat-messages::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .chat-messages::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 3px;
+            }
+
+            .chat-messages::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 3px;
+            }
+
+            .chat-messages::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="chat-header">
+                🍔 Restaurant Agent Chat by Symmetrie
+            </div>
+            
+            <div class="chat-messages" id="messages">
+                <div class="message bot">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-bubble">
+                        ¡Hola! Soy tu asistente de restaurantes. Puedo ayudarte a encontrar hamburguesas, completos y pizzas en diferentes comunas de Santiago. ¿Qué te gustaría buscar?
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+                El asistente está escribiendo...
+            </div>
+            
+            <div class="chat-input-container">
+                <form class="chat-input-form" onsubmit="sendMessage(event)">
+                    <input 
+                        type="text" 
+                        id="messageText" 
+                        class="chat-input"
+                        autocomplete="off" 
+                        placeholder="Ej: Hamburguesas McDonald's en Puente Alto..."
+                        required
+                    />
+                    <button type="submit" class="send-button" id="sendButton">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var ws = new WebSocket("ws://localhost:8000/ws");
+            var messagesContainer = document.getElementById('messages');
+            var typingIndicator = document.getElementById('typingIndicator');
+            var sendButton = document.getElementById('sendButton');
+            var messageInput = document.getElementById('messageText');
+
+            ws.onopen = function(event) {
+                console.log('Connected to WebSocket');
+            };
+
+            ws.onmessage = function(event) {
+                hideTypingIndicator();
+                
+                try {
+                    var data = JSON.parse(event.data);
+                    addBotMessage(data);
+                } catch (e) {
+                    // Fallback for plain text responses
+                    addBotMessage({ type: 'response', message: event.data });
+                }
+                
+                scrollToBottom();
+            };
+
+            ws.onclose = function(event) {
+                console.log('WebSocket connection closed');
+                addBotMessage({ 
+                    type: 'response', 
+                    message: 'Conexión perdida. Por favor, recarga la página.' 
+                });
+            };
+
+            ws.onerror = function(error) {
+                console.log('WebSocket error:', error);
+                hideTypingIndicator();
+                addBotMessage({ 
+                    type: 'response', 
+                    message: 'Error de conexión. Por favor, verifica que el servidor esté funcionando.' 
+                });
+            };
+
+            function sendMessage(event) {
+                event.preventDefault();
+                
+                var input = document.getElementById("messageText");
+                var messageText = input.value.trim();
+                
+                if (!messageText) return;
+
+                // Add user message to chat
+                addUserMessage(messageText);
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Send message via WebSocket
+                var message = {
+                    "type": "query",
+                    "message": messageText
+                };
+                
+                ws.send(JSON.stringify(message));
+                input.value = '';
+                scrollToBottom();
+            }
+
+            function addUserMessage(text) {
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'message user';
+                
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">👤</div>
+                    <div class="message-bubble">${escapeHtml(text)}</div>
+                `;
+                
+                messagesContainer.appendChild(messageDiv);
+            }
+
+            function addBotMessage(data) {
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot';
+                
+                var content = '';
+                
+                if (data.restaurants && data.restaurants.length > 0) {
+                    content = data.explanation || 'Aquí tienes los restaurantes que encontré:';
+                    content += '<div class="restaurant-list">';
+                    
+                    data.restaurants.forEach(function(restaurant) {
+                        content += `
+                            <div class="restaurant-item">
+                                <div class="restaurant-name">${escapeHtml(restaurant.name)}</div>
+                                <div class="restaurant-details">
+                                    📍 ${escapeHtml(restaurant.full_address)} | 
+                                    ⭐ ${Math.trunc(restaurant.score)}/5
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    content += '</div>';
+                } else {
+                    content = data.message || data.explanation || 'Lo siento, no pude procesar tu solicitud.';
+                }
+                
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-bubble">${content}</div>
+                `;
+                
+                messagesContainer.appendChild(messageDiv);
+            }
+
+            function showTypingIndicator() {
+                typingIndicator.style.display = 'flex';
+                sendButton.disabled = true;
+                messageInput.disabled = true;
+                scrollToBottom();
+            }
+
+            function hideTypingIndicator() {
+                typingIndicator.style.display = 'none';
+                sendButton.disabled = false;
+                messageInput.disabled = false;
+            }
+
+            function scrollToBottom() {
+                setTimeout(function() {
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 100);
+            }
+
+            function escapeHtml(text) {
+                var map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+            }
+
+            // Auto-focus input on page load
+            window.onload = function() {
+                messageInput.focus();
+            };
+
+            // Handle Enter key
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage(e);
+                }
+            });
+        </script>
+    </body>
+</html>

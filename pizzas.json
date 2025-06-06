@@ -1,0 +1,302 @@
+[
+    {
+        "name": "Melt Pizza Las Condes",
+        "address": "Av. Apoquindo 4501, Las Condes, Santiago",
+        "score": 4.8
+    },
+    {
+        "name": "Melt Pizza Providencia",
+        "address": "Av. Providencia 2594, Providencia, Santiago",
+        "score": 4.9
+    },
+    {
+        "name": "Melt Pizza Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Melt Pizza Mall Plaza Vespucio",
+        "address": "Av. Américo Vespucio 1501, La Florida, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Melt Pizza Ñuñoa",
+        "address": "Av. Irarrázaval 2845, Ñuñoa, Santiago",
+        "score": 4.8
+    },
+    {
+        "name": "Melt Pizza Maipú",
+        "address": "Av. Pajaritos 1854, Maipú, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Papa Johns Las Condes",
+        "address": "Av. Kennedy 9001, Las Condes, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Papa Johns Plaza Italia",
+        "address": "Av. Providencia 1308, Providencia, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Papa Johns Mall Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Papa Johns Estación Central",
+        "address": "Av. Libertador Bernardo O'Higgins 3820, Estación Central, Santiago",
+        "score": 3.4
+    },
+    {
+        "name": "Papa Johns Ñuñoa",
+        "address": "Av. Grecia 8820, Ñuñoa, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Papa Johns La Florida",
+        "address": "Av. Vicuña Mackenna Poniente 7110, La Florida, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Papa Johns Puente Alto",
+        "address": "Av. Concha y Toro 1820, Puente Alto, Santiago",
+        "score": 3.3
+    },
+    {
+        "name": "Papa Johns San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 5201, San Miguel, Santiago",
+        "score": 3.2
+    },
+    {
+        "name": "Little Caesars Mall Plaza Vespucio",
+        "address": "Av. Américo Vespucio 1501, La Florida, Santiago",
+        "score": 2.5
+    },
+    {
+        "name": "Little Caesars Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 2.3
+    },
+    {
+        "name": "Little Caesars Plaza de Armas",
+        "address": "Portal Fernández Concha 850, Santiago Centro",
+        "score": 2.1
+    },
+    {
+        "name": "Little Caesars Mall Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 2.4
+    },
+    {
+        "name": "Little Caesars Estación Central",
+        "address": "Av. Libertador Bernardo O'Higgins 3820, Estación Central, Santiago",
+        "score": 1.9
+    },
+    {
+        "name": "Little Caesars Maipú",
+        "address": "Av. Américo Vespucio 1501, Maipú, Santiago",
+        "score": 2.2
+    },
+    {
+        "name": "Little Caesars Puente Alto",
+        "address": "Av. Concha y Toro 1820, Puente Alto, Santiago",
+        "score": 1.8
+    },
+    {
+        "name": "Little Caesars San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 5201, San Miguel, Santiago",
+        "score": 1.7
+    },
+    {
+        "name": "Little Caesars Ñuñoa",
+        "address": "Av. Irarrázaval 2845, Ñuñoa, Santiago",
+        "score": 2.0
+    },
+    {
+        "name": "Little Caesars Las Condes",
+        "address": "Av. Apoquindo 3846, Las Condes, Santiago",
+        "score": 2.6
+    },
+    {
+        "name": "Melt Pizza Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Melt Pizza Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Melt Pizza Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 4.8
+    },
+    {
+        "name": "Melt Pizza Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Melt Pizza Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 4.9
+    },
+    {
+        "name": "Melt Pizza San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Melt Pizza Puente Alto",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Melt Pizza Estación Central",
+        "address": "Av. Libertador Bernardo O'Higgins 3820, Estación Central, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Melt Pizza Quilicura",
+        "address": "Av. Américo Vespucio 1400, Quilicura, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Melt Pizza La Reina",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Papa Johns Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Papa Johns Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Papa Johns Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Papa Johns Plaza Vespucio",
+        "address": "Av. Vicuña Mackenna 7110, La Florida, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Papa Johns Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Papa Johns Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Papa Johns Maipú",
+        "address": "Av. Américo Vespucio 399, Maipú, Santiago",
+        "score": 3.4
+    },
+    {
+        "name": "Papa Johns Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Papa Johns Mall del Centro",
+        "address": "Paseo Puente 689, Santiago Centro",
+        "score": 3.3
+    },
+    {
+        "name": "Papa Johns Arauco Estación",
+        "address": "San Francisco de Borja 66, Santiago Centro",
+        "score": 3.5
+    },
+    {
+        "name": "Papa Johns Plaza Oeste",
+        "address": "Av. Américo Vespucio, Lo Espejo, Santiago",
+        "score": 3.2
+    },
+    {
+        "name": "Papa Johns Quilicura",
+        "address": "Av. Américo Vespucio 1400, Quilicura, Santiago",
+        "score": 3.4
+    },
+    {
+        "name": "Papa Johns La Reina",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Papa Johns Peñalolén",
+        "address": "Av. Grecia 9200, Peñalolén, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Little Caesars Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 2.3
+    },
+    {
+        "name": "Little Caesars Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 2.1
+    },
+    {
+        "name": "Little Caesars Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 2.2
+    },
+    {
+        "name": "Little Caesars Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 2.0
+    },
+    {
+        "name": "Little Caesars Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 2.4
+    },
+    {
+        "name": "Little Caesars Mall del Centro",
+        "address": "Paseo Puente 689, Santiago Centro",
+        "score": 1.9
+    },
+    {
+        "name": "Little Caesars Arauco Estación",
+        "address": "San Francisco de Borja 66, Santiago Centro",
+        "score": 2.1
+    },
+    {
+        "name": "Little Caesars Plaza Oeste",
+        "address": "Av. Américo Vespucio, Lo Espejo, Santiago",
+        "score": 1.8
+    },
+    {
+        "name": "Little Caesars Quilicura",
+        "address": "Av. Américo Vespucio 1400, Quilicura, Santiago",
+        "score": 2.0
+    },
+    {
+        "name": "Little Caesars La Reina",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 2.2
+    },
+    {
+        "name": "Little Caesars Peñalolén",
+        "address": "Av. Grecia 9200, Peñalolén, Santiago",
+        "score": 2.1
+    },
+    {
+        "name": "Little Caesars Providencia",
+        "address": "Av. Providencia 2594, Providencia, Santiago",
+        "score": 2.3
+    }
+]

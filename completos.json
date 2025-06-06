@@ -1,0 +1,257 @@
+[
+    {
+        "name": "Dominó Fuente de Soda Centro",
+        "address": "Av. Libertador Bernardo O'Higgins 1058, Santiago Centro",
+        "score": 4.8
+    },
+    {
+        "name": "Dominó Fuente de Soda Providencia",
+        "address": "Av. Providencia 2594, Providencia, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Dominó Fuente de Soda Las Condes",
+        "address": "Av. Apoquindo 3846, Las Condes, Santiago",
+        "score": 4.9
+    },
+    {
+        "name": "Dominó Fuente de Soda Ñuñoa",
+        "address": "Av. Irarrázaval 2845, Ñuñoa, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Dominó Fuente de Soda Maipú",
+        "address": "Av. Pajaritos 1854, Maipú, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Pedro Juan & Diego Plaza Italia",
+        "address": "Av. Vicuña Mackenna 20, Providencia, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Pedro Juan & Diego Bellavista",
+        "address": "Pío Nono 200, Providencia, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Pedro Juan & Diego Manuel Montt",
+        "address": "Av. Manuel Montt 315, Providencia, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Pedro Juan & Diego Las Condes",
+        "address": "Av. El Bosque Norte 0177, Las Condes, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Pedro Juan & Diego Ñuñoa",
+        "address": "Av. Grecia 8820, Ñuñoa, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Pedro Juan & Diego La Florida",
+        "address": "Av. Vicuña Mackenna Poniente 7110, La Florida, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Doggis Mall Plaza Vespucio",
+        "address": "Av. Américo Vespucio 1501, La Florida, Santiago",
+        "score": 2.8
+    },
+    {
+        "name": "Doggis Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 2.5
+    },
+    {
+        "name": "Doggis Plaza de Armas",
+        "address": "Portal Fernández Concha 850, Santiago Centro",
+        "score": 2.3
+    },
+    {
+        "name": "Doggis Mall Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 2.7
+    },
+    {
+        "name": "Doggis Estación Central",
+        "address": "Av. Libertador Bernardo O'Higgins 3820, Estación Central, Santiago",
+        "score": 2.1
+    },
+    {
+        "name": "Doggis Maipú",
+        "address": "Av. Américo Vespucio 1501, Maipú, Santiago",
+        "score": 2.4
+    },
+    {
+        "name": "Doggis Puente Alto",
+        "address": "Av. Concha y Toro 1820, Puente Alto, Santiago",
+        "score": 2.2
+    },
+    {
+        "name": "Doggis San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 5201, San Miguel, Santiago",
+        "score": 2.0
+    },
+    {
+        "name": "Dominó Fuente de Soda Agustinas",
+        "address": "Agustinas 1016, Santiago Centro",
+        "score": 4.9
+    },
+    {
+        "name": "Dominó Fuente de Soda Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Dominó Fuente de Soda Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Dominó Fuente de Soda Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 4.7
+    },
+    {
+        "name": "Dominó Fuente de Soda Plaza Vespucio",
+        "address": "Av. Vicuña Mackenna 7110, La Florida, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Dominó Fuente de Soda Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Dominó Fuente de Soda San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Dominó Fuente de Soda Puente Alto",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Dominó Fuente de Soda Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Dominó Fuente de Soda Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Dominó Fuente de Soda Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 4.6
+    },
+    {
+        "name": "Pedro Juan & Diego Maipú",
+        "address": "Av. Américo Vespucio 399, Maipú, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Pedro Juan & Diego San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Pedro Juan & Diego Puente Alto",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Pedro Juan & Diego Estación Central",
+        "address": "Av. Libertador Bernardo O'Higgins 3820, Estación Central, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Pedro Juan & Diego Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Pedro Juan & Diego Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Pedro Juan & Diego Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 3.7
+    },
+    {
+        "name": "Pedro Juan & Diego Plaza Vespucio",
+        "address": "Av. Vicuña Mackenna 7110, La Florida, Santiago",
+        "score": 3.6
+    },
+    {
+        "name": "Pedro Juan & Diego Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Pedro Juan & Diego Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "Doggis Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 2.6
+    },
+    {
+        "name": "Doggis Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 2.4
+    },
+    {
+        "name": "Doggis Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 2.5
+    },
+    {
+        "name": "Doggis Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 2.3
+    },
+    {
+        "name": "Doggis Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 2.6
+    },
+    {
+        "name": "Doggis Mall del Centro",
+        "address": "Paseo Puente 689, Santiago Centro",
+        "score": 2.2
+    },
+    {
+        "name": "Doggis Arauco Estación",
+        "address": "San Francisco de Borja 66, Santiago Centro",
+        "score": 2.4
+    },
+    {
+        "name": "Doggis Plaza Oeste",
+        "address": "Av. Américo Vespucio, Lo Espejo, Santiago",
+        "score": 2.1
+    },
+    {
+        "name": "Doggis Quilicura",
+        "address": "Av. Américo Vespucio 1400, Quilicura, Santiago",
+        "score": 2.3
+    },
+    {
+        "name": "Doggis La Reina",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 2.5
+    },
+    {
+        "name": "Doggis Peñalolén",
+        "address": "Av. Grecia 9200, Peñalolén, Santiago",
+        "score": 2.4
+    }
+]

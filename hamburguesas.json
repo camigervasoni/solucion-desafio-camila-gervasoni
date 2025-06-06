@@ -1,0 +1,257 @@
+[
+    {
+        "name": "McDonald's Las Condes",
+        "address": "Av. Apoquindo 4501, Las Condes, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "McDonald's Plaza Italia",
+        "address": "Av. Providencia 1308, Providencia, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "McDonald's Mall Plaza Vespucio",
+        "address": "Av. Américo Vespucio 1501, La Florida, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "McDonald's Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Wendy's Alto Las Condes",
+        "address": "Av. Kennedy 9001, Las Condes, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Wendy's Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Wendy's Parque Arauco",
+        "address": "Av. Kennedy 5413, Las Condes, Santiago",
+        "score": 4.5
+    },
+    {
+        "name": "Burger King Providencia",
+        "address": "Av. Manuel Montt 122, Providencia, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Burger King Las Condes",
+        "address": "Alonso de Córdova 5670, Las Condes, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Burger King Mall Plaza Sur",
+        "address": "Av. Camino a Melipilla 9750, San Bernardo, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Burger King Maipú",
+        "address": "Av. Américo Vespucio 1501, Maipú, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "McDonald's Mall Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "McDonald's Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "McDonald's Maipú",
+        "address": "Av. Américo Vespucio 399, Maipú, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "McDonald's Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "McDonald's Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "McDonald's Mall del Centro",
+        "address": "Paseo Puente 689, Santiago Centro, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "McDonald's Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "McDonald's San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "McDonald's Puente Alto",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Wendy's Plaza Sur",
+        "address": "Av. Presidente Jorge Alessandri Rodríguez 20040, San Bernardo, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Wendy's Mall Plaza Alameda",
+        "address": "Av. Libertador Bernardo O'Higgins 3470, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Wendy's Florida Center",
+        "address": "Av. Vicuña Mackenna Oriente 6100, La Florida, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Wendy's Barrio Independencia",
+        "address": "Av. Independencia 565, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Wendy's San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Wendy's Q Center",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Wendy's Mall Arauco Maipú",
+        "address": "Av. Américo Vespucio 399, Maipú, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Wendy's Gran Avenida",
+        "address": "Gran Avenida José Miguel Carrera 8503, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Wendy's Puente Alto",
+        "address": "Av. Concha y Toro 555, Puente Alto, Santiago",
+        "score": 3.5
+    },
+    {
+        "name": "Wendy's Plaza Tobalaba",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 5
+    },
+    {
+        "name": "Wendy's Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado Sur 875, Las Condes, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Wendy's Arauco Estación",
+        "address": "San Francisco de Borja 66, Santiago Centro, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Wendy's Plaza Oeste",
+        "address": "Av. Américo Vespucio, Lo Espejo, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Wendy's El Rosal",
+        "address": "Av. Américo Vespucio 1076, Maipú, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Wendy's Plaza Egaña",
+        "address": "Av. Larraín 5832, La Reina, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Wendy's Pedro de Valdivia",
+        "address": "Av. Pedro de Valdivia 099, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Wendy's Costanera",
+        "address": "Av. Andrés Bello 2433, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Wendy's Encomenderos",
+        "address": "Encomenderos 300, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Wendy's Vespucio",
+        "address": "Plaza Vespucio 7110, La Florida, Santiago",
+        "score": 4.4
+    },
+    {
+        "name": "Burger King Mall Plaza Alameda",
+        "address": "Av. Libertador Bernardo O'Higgins 3470, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Burger King Florida Center",
+        "address": "Av. Vicuña Mackenna 6100, La Florida, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Burger King Plaza Norte",
+        "address": "Av. Américo Vespucio 1737, Huechuraba, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Burger King Costanera Center",
+        "address": "Av. Andrés Bello 2425, Providencia, Santiago",
+        "score": 4.3
+    },
+    {
+        "name": "Burger King Plaza Vespucio",
+        "address": "Av. Vicuña Mackenna 7110, La Florida, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "Burger King Tobalaba",
+        "address": "Av. Tobalaba 12175, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "Burger King San Miguel",
+        "address": "Gran Avenida José Miguel Carrera 4293, San Miguel, Santiago",
+        "score": 3.9
+    },
+    {
+        "name": "Burger King Plaza Los Dominicos",
+        "address": "Av. Padre Hurtado 875, Las Condes, Santiago",
+        "score": 4.2
+    },
+    {
+        "name": "Burger King Puente Alto",
+        "address": "Av. Camilo Henríquez 3692, Puente Alto, Santiago",
+        "score": 4.0
+    },
+    {
+        "name": "McDonald's Arauco Estación",
+        "address": "San Francisco de Borja 66, Santiago Centro, Santiago",
+        "score": 4.1
+    },
+    {
+        "name": "McDonald's Plaza Oeste",
+        "address": "Av. Américo Vespucio, Lo Espejo, Santiago",
+        "score": 3.8
+    },
+    {
+        "name": "McDonald's Pedro de Valdivia",
+        "address": "Av. Pedro de Valdivia 099, Santiago",
+        "score": 4.2
+    }
+]
