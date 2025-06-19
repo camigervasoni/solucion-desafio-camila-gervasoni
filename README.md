@@ -1,117 +1,146 @@
 # Symmetrie Challenge
 
-### Expected time: 2 ~ 3 hrs
+### Description of the code
 
-### Overview
+Este repositorio es la resolución del Symmetrie Challenge. Implementa una aplicación FastAPI para un chatbot de recomendación de restaurantes. El sistema utiliza LangGraph para definir un flujo de trabajo agentico que procesa consultas de usuario, busca restaurantes en una base de datos vectorial Milvus y genera respuestas amigables. El frontend es una interfaz de chat simple en HTML/JS que se comunica con el backend mediante WebSockets.
 
-Welcome to the Symmetrie challenge! You will be asked to build an agentic system that can be used to list fast food restaurants near to a specific location. This system will use LangGraph for the agentic workflow and Milvus for data storage and retrieval.
+### Solution
 
-### Starter code
+La solución se completó abordando todos los TODOs en el código inicial y verificando su funcionamiento con las pruebas proporcionadas.
 
-A basic working FastAPI application has been included with a single websocket endpoint. You can find the backend code in the repository. Please use this as your starting point and extend it to build the agentic system by completing the TODOs.
+#### TODOs in ```milvus_client.py```:
 
-To start up the app, first install all the dependencies with `pip install -r requirements.txt`. Then run the FastAPI server with `uvicorn main:app --reload`. You can access the frontend at `http://localhost:8000`.
+Este código define el esquema para la colección de Milvus, especificando los campos y tipos de datos de cada restaurante. Seleccioné estos campos después de investigar sobre Milvus y revisar tanto la estructura de los datos crudos como el modelo Restaurant.
+```python
+# TODO✅: Add fields to schema
+schema.add_field(field_name="name", datatype=DataType.VARCHAR, max_length=256)
+schema.add_field(field_name="street", datatype=DataType.VARCHAR, max_length=512)
+schema.add_field(field_name="municipality", datatype=DataType.VARCHAR, max_length=256)
+schema.add_field(field_name="full_address", datatype=DataType.VARCHAR, max_length=512)
+schema.add_field(field_name="score", datatype=DataType.FLOAT)
+schema.add_field(field_name="type", datatype=DataType.VARCHAR, max_length=64)
+schema.add_field(field_name="embedding", datatype=DataType.FLOAT_VECTOR, dim=self.dimension)
+```
 
-Note: Milvus doesn't have support on Windows, so you will need to use WSL to run the app.
+Este código extrae los detalles de la dirección de los datos crudos, crea un objeto Restaurant para cada entrada y lo agrega a la lista.
+```python
+# TODO✅: Add restaurants to the list
+# Extract street and municipality from full address
+full_address = item.get("address")
+street = full_address.split(",")[0] if full_address else ""
+municipality = full_address.split(",")[1].strip() if full_address else ""
+# Create Restaurant object
+restaurant = Restaurant(
+    name=item.get("name"),
+    street=street,
+    municipality=municipality,
+    full_address=full_address,
+    score=item.get("score"),
+    type=restaurant_type,
+)
+restaurants.append(restaurant)
+```
 
-![Frontend](fastapi.png)
+Este código formatea los datos de cada restaurante como un diccionario y los agrega a la lista para la inserción en las colecciones.
+```python
+# TODO✅: Add entity to entities list
+entity = {
+    "name": restaurant.name,
+    "street": restaurant.street,
+    "municipality": restaurant.municipality,
+    "full_address": restaurant.full_address,
+    "score": restaurant.score,
+    "type": restaurant.type.value,
+    "embedding": embedding
+    }
+entities.append(entity)
+```
 
-### Requirements
+Este código convierte cada resultado de búsqueda en un objeto Restaurant y lo agrega a la lista.
+```python
+# TODO✅: Add restaurants to the list
+restaurant = Restaurant(
+    name=hit.get("name"),
+    street=hit.get("street"),
+    municipality=hit.get("municipality"),
+    full_address=hit.get("full_address"),
+    score=hit.get("score"),
+    type=restaurant_type,
+)
+restaurants.append(restaurant)
+```
 
-You will be given three lists of fast food restaurants, with their name, location, and a score. There are three types of food categories to work with:
-- Hamburguesas
-- Completos  
-- Pizzas
+#### TODOs in ```query_parser.py```:
+ 
+Esta función retorna True si la consulta menciona tanto las keywords de mejores como de peores resultados.
 
-Your agentic system should be able to:
+```python
+def _check_ranking_filter(self, query: str) -> bool:
+    """Check if query asks for best and worst restaurants"""
+    # TODO✅: Implement this
+    query_lower = query.lower()
+    has_best = any(keyword in query_lower for keyword in self.ranking_keywords['best'])
+    has_worst = any(keyword in query_lower for keyword in self.ranking_keywords['worst'])
+    return has_best and has_worst
+```
 
-- Accept user queries about the desired list of fast food restaurants in a specific location and food franchise via websocket connection
-- Use LangGraph to build an agentic workflow that can process user requests
-- Filter restaurants based on the location requested
-- Return a list of the restaurants matching the user's criteria
+#### TODOs in ```restaurant_agent.py```:
 
-Some notes:
+Este código añade cada paso del proceso como nodos en el flujo de trabajo de LangGraph y los ordena usando edges. Como no había usado LangGraph antes, lo investigue para entender cómo implementarlo.
 
-- You can change anything in the existing code (except for the test files), but you cannot add any new dependencies beyond what's already included
-- Don't incur in costs for using OpenAI or any other LLM. Agents should be able to respond using mock data and prompts
-- We will NOT evaluate your solution based on the UI design, as this is primarily a backend/agent challenge.
+```python 
+# Add nodes (steps in the workflow)
+# TODO✅: Add nodes to the workflow
+workflow.add_node("parse_query", self._parse_query_node)
+workflow.add_node("search_restaurants", self._search_restaurants_node)
+workflow.add_node("filter_and_rank", self._filter_and_rank_node)
+workflow.add_node("generate_response", self._generate_response_node)
 
-### Testing
-Once you have implemented the system, you can test it.
+# Define the workflow edges
+# TODO✅: Add edges to the workflow
+workflow.set_entry_point("parse_query")
+workflow.add_edge("parse_query", "search_restaurants")
+workflow.add_edge("search_restaurants", "filter_and_rank")
+workflow.add_edge("filter_and_rank", "generate_response")
+workflow.add_edge("generate_response", END) 
+```
 
-To test the system, run the command `pytest` or `python test_file.py` for the specific test file you want to run.
+Esta línea ejecuta el workflow desde el estado inicial y retorna el resultado final.
+```python
+# Run the workflow
+# TODO✅: Invoke the workflow
+final_state = self.workflow.invoke(initial_state)
+```
 
-The following tests verify existing functionality and are currently passing:
+Este código ordena los restaurantes por puntaje en orden descendente para mostrar primero las mejores opciones. Decidí retornar los 3 mejores y los 3 peores restaurantes (sin duplicados) cuando el filtro best_and_worst_filter está activo; de lo contrario, se mantienen todos los restaurantes ordenados por puntaje.
 
-* `test_query_parser.py` - Tests query parsing, food type extraction, location detection, and best/worst detection (bonus tests will fail until you implement the bonus features).
-* `test_websocket.py` - Tests WebSocket endpoint.
+```python
+# Apply best and worst filter (bonus feature)
+# Order restaurants by score descending
+sorted_restaurants = sorted(restaurants, key=lambda r: getattr(r, "score", 0) or 0, reverse=True)
+            
+if state.get("best_and_worst_filter", False):
+    # TODO✅: Implement this
+    best = sorted_restaurants[:3]  # Top 3 best restaurants
+    worst = sorted_restaurants[-3:] if len(sorted_restaurants) > 3 else [] # Top 3 worst restaurants
+    # Join best and worst, ensuring no duplicates
+    filtered = best + [r for r in worst if r not in best]
+    state["filtered_restaurants"] = filtered
+else:
+    # Keep all restaurants sorted by score
+    state["filtered_restaurants"] = sorted_restaurants
 
-The following tests verify your implementation and the bonus features:
-* `test_queries.py` -  Tests the Milvus integration and the main agent functionality through specific queries (including the bonus questions).
-
-You also can experiment using the frontend with queries such as:
-- "Hamburguesas en Puente Alto"
-- "Papas fritas en Santiago Centro"
-- "Hamburguesas McDonald's en Puente Alto"
-- "Pizzas Melt Costanera Center"
-- "Completos Doggis"
-
-Try with different queries and see how the system performs. This will help you to understand the system and to answer the bonus questions.
-
-
-### Evaluation
-
-We will evaluate your solution using the following assessments:
-
-- Does the code pass the tests?
-- Does it implement the core agentic functionality using LangGraph?
-- Is Milvus properly integrated for data storage and retrieval?
-- Is the code well-organized, easy to read, and reasonably modular?
-
-Send us a link to a public GitHub repository with your solution. Include a README.md file with a description of the code, your solution, the main decisions made.
+```
 
 ### BONUS
-- ¿Cuál es el impacto de usar un filtro en Milvus? ¿Qué cambios harías para mejorar los resultados considerando el rendimiento? (+1 punto)
-- ¿Qué cambios harías en el esquema de la base de datos vectorial para que entregue resultados más precisos? (+1 punto)
-- Durante el proceso de embedding, ¿Cómo influye el largo del contenido a transformar en vector en la búsqueda vectorial? (+2 puntos)
+- ¿Cuál es el impacto de usar un filtro en Milvus? ¿Qué cambios harías para mejorar los resultados considerando el rendimiento? \
+El uso de filtros mejora la precisión de las búsquedas al limitar los resultados a condiciones específicas, en este caso la ubicación, pero puede afectar el rendimiento si se utilizan expresiones como ```like```, que no son optimizadas para grandes volúmenes de datos. Para mejorar los resultados, se recomienda normalizar los valores filtrados, para poder usar comparaciones exactas cuando sea posible y considerar incluir la ubicación dentro del texto vectorizado para aprovechar la búsqueda semántica.
+
+- ¿Qué cambios harías en el esquema de la base de datos vectorial para que entregue resultados más precisos?\
+Actualmente, en la base de datos se crea una colección por cada tipo de comida (Hamburguesas, Pizzas, Completos), lo que limita las búsquedas a una categoría a la vez y complica la escalabilidad. Para mejorar la precisión y flexibilidad, unificaría todas las entradas en una sola colección y usaría el campo type como filtro. Esto permitiría realizar búsquedas cruzadas entre distintos tipos de comida, agregar nuevos tipos y realizar consultas más complejas.
+
+- Durante el proceso de embedding, ¿Cómo influye el largo del contenido a transformar en vector en la búsqueda vectorial? \
+El largo del contenido impacta la calidad del embedding, en particular textos muy cortos pueden ser poco informativos y textos muy largos pueden contener ruido y generar confusión al modelo. Idealmente, se debe usar contenido conciso pero representativo para generar vectores más útiles en la búsqueda vectorial.
+
 - Extiende el sistema para permitir al usuario preguntar por los mejores y peores restaurantes en una categoría específica (Prueba con "los mejores y peores Completos Dominó Fuente de Soda Mall Plaza Norte") (+0.5 puntos)
-
-****
-### API Documentation
-
-WebSocket endpoint: `ws://localhost:8000/ws`
-
-Expected message format for queries:
-```json
-{
-  "type": "query",
-  "message": "Hamburguesas en Santiago Centro"
-}
-```
-
-Expected response format:
-```json
-{
-  "type": "response",
-  "restaurants": [
-    {
-      "name": "Burger Palace",
-      "street": "Downtown",
-      "municipality": "Recoleta",
-      "full_address": "Downtown, Recoleta, Santiago",
-      "score": 9.2,
-      "type": "Hamburguesas"
-    }
-  ],
-  "explanation": "Based on your request for hamburguesas, I found these top-rated options..."
-}
-```
-
-Restaurant data structure:
-```json
-{
-  "name": "string",
-  "address": "string, string, string", 
-  "score": "float",
-}
-```
+Está realizado el bonus en el último TO DO de la sección anterior.
