@@ -1,8 +1,8 @@
-# Symmetrie Challenge
+# Challenge
 
 ### Description of the code
 
-Este repositorio es la resolución del Symmetrie Challenge. Implementa una aplicación FastAPI para un chatbot de recomendación de restaurantes. El sistema utiliza LangGraph para definir un flujo de trabajo agentico que procesa consultas de usuario, busca restaurantes en una base de datos vectorial Milvus y genera respuestas amigables. El frontend es una interfaz de chat simple en HTML/JS que se comunica con el backend mediante WebSockets.
+Este repositorio es la resolución del Challenge propuesto. Implementa una aplicación FastAPI para un chatbot de recomendación de restaurantes. El sistema utiliza LangGraph para definir un flujo de trabajo agentico que procesa consultas de usuario, busca restaurantes en una base de datos vectorial Milvus y genera respuestas amigables. El frontend es una interfaz de chat simple en HTML/JS que se comunica con el backend mediante WebSockets.
 
 ### Solution
 
