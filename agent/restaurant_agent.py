@@ -28,10 +28,19 @@ class RestaurantAgent:
         workflow = StateGraph(AgentState)
         
         # Add nodes (steps in the workflow)
-        # TODO: Add nodes to the workflow
+        # TODO✅: Add nodes to the workflow
+        workflow.add_node("parse_query", self._parse_query_node)
+        workflow.add_node("search_restaurants", self._search_restaurants_node)
+        workflow.add_node("filter_and_rank", self._filter_and_rank_node)
+        workflow.add_node("generate_response", self._generate_response_node)
         
         # Define the workflow edges
-        # TODO: Add edges to the workflow
+        # TODO✅: Add edges to the workflow
+        workflow.set_entry_point("parse_query")
+        workflow.add_edge("parse_query", "search_restaurants")
+        workflow.add_edge("search_restaurants", "filter_and_rank")
+        workflow.add_edge("filter_and_rank", "generate_response")
+        workflow.add_edge("generate_response", END) 
         
         return workflow.compile()
         
@@ -39,14 +48,14 @@ class RestaurantAgent:
         """Parse the user query to extract food type and location"""
         user_query = state.get("user_query", "")
         logger.info(f"Parsing original query: {user_query}")
-        
+
         new_query, food_type, location, best_and_worst = self.query_parser.parse_query(user_query)
-        
+
         state["user_query"] = new_query
         state["parsed_food_type"] = food_type
         state["parsed_location"] = location
         state["best_and_worst_filter"] = best_and_worst
-        
+
         logger.info(f"Parsed - Query: {new_query}, Food type: {food_type}, Location: {location}, Best/Worst: {best_and_worst}")
         
         return state
@@ -79,15 +88,24 @@ class RestaurantAgent:
         logger.info("Applying filters and ranking")
         
         restaurants = state.get("filtered_restaurants", [])
-        
         if not restaurants:
             return state
+        
+        # Order restaurants by score descending
+        sorted_restaurants = sorted(restaurants, key=lambda r: getattr(r, "score", 0) or 0, reverse=True)
             
         # Apply best and worst filter (bonus feature)
         if state.get("best_and_worst_filter", False):
-            # TODO: Implement this
-            pass
-            
+            # TODO✅: Implement this
+            best = sorted_restaurants[:3]  # Top 3 best restaurants
+            worst = sorted_restaurants[-3:] if len(sorted_restaurants) > 3 else [] # Top 3 worst restaurants
+            # Join best and worst, ensuring no duplicates
+            filtered = best + [r for r in worst if r not in best]
+            state["filtered_restaurants"] = filtered
+        else:
+            # Keep all restaurants sorted by score
+            state["filtered_restaurants"] = sorted_restaurants
+
         return state
         
     def _generate_response_node(self, state: AgentState) -> AgentState:
@@ -141,8 +159,8 @@ class RestaurantAgent:
             }
             
             # Run the workflow
-            # TODO: Invoke the workflow
-            final_state = {}
+            # TODO✅: Invoke the workflow
+            final_state = self.workflow.invoke(initial_state)
             
             # Prepare response
             restaurants = final_state.get("filtered_restaurants", [])

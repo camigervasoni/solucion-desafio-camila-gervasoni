@@ -378,7 +378,7 @@
                                 <div class="restaurant-name">${escapeHtml(restaurant.name)}</div>
                                 <div class="restaurant-details">
                                     📍 ${escapeHtml(restaurant.full_address)} | 
-                                    ⭐ ${Math.trunc(restaurant.score)}/5
+                                    ⭐ ${Math.trunc(restaurant.score * 10)/10}/5
                                 </div>
                             </div>
                         `;

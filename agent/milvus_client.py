@@ -49,9 +49,16 @@ class MilvusClient:
             )
                 
             # Define collection schema
-            # schema.add_field(field_name="id", datatype=DataType.INT64, is_primary=True)
-            # TODO: Add fields to schema
-            
+            schema.add_field(field_name="id", datatype=DataType.INT64, is_primary=True)
+            # TODO✅: Add fields to schema
+            schema.add_field(field_name="name", datatype=DataType.VARCHAR, max_length=256)
+            schema.add_field(field_name="street", datatype=DataType.VARCHAR, max_length=512)
+            schema.add_field(field_name="municipality", datatype=DataType.VARCHAR, max_length=256)
+            schema.add_field(field_name="full_address", datatype=DataType.VARCHAR, max_length=512)
+            schema.add_field(field_name="score", datatype=DataType.FLOAT)
+            schema.add_field(field_name="type", datatype=DataType.VARCHAR, max_length=64)
+            schema.add_field(field_name="embedding", datatype=DataType.FLOAT_VECTOR, dim=self.dimension)
+
             # Prepare index parameters
             # Creating a collection with index parameters 
             # loads the collection upon its creation
@@ -124,8 +131,21 @@ class MilvusClient:
                     with open(filename, 'r', encoding='utf-8') as file:
                         data = json.load(file)
                         for item in data:
-                            # TODO: Add restaurants to the list
-                            pass
+                            # TODO✅: Add restaurants to the list
+                            # Extract street and municipality from full address
+                            full_address = item.get("address")
+                            street = full_address.split(",")[0] if full_address else ""
+                            municipality = full_address.split(",")[1].strip() if full_address else ""
+                            # Create Restaurant object
+                            restaurant = Restaurant(
+                                name=item.get("name"),
+                                street=street,
+                                municipality=municipality,
+                                full_address=full_address,
+                                score=item.get("score"),
+                                type=restaurant_type,
+                            )
+                            restaurants.append(restaurant)
                     
                     if not restaurants:
                         logger.warning(f"No restaurant data found in {filename}")
@@ -138,8 +158,17 @@ class MilvusClient:
                         text = f"{restaurant.name} {restaurant.full_address}"
                         embedding = self.encoder.encode_queries([text])[0]
                         
-                        # TODO: Add entity to entities list
-                        pass
+                        # TODO✅: Add entity to entities list
+                        entity = {
+                            "name": restaurant.name,
+                            "street": restaurant.street,
+                            "municipality": restaurant.municipality,
+                            "full_address": restaurant.full_address,
+                            "score": restaurant.score,
+                            "type": restaurant.type.value,
+                            "embedding": embedding
+                        }
+                        entities.append(entity)
                     
                     # Insert data into the specific collection
                     res = self.client.insert(
@@ -209,8 +238,16 @@ class MilvusClient:
             restaurant_type = RestaurantType(food_type)
             
             for hit in results[0]:
-                # TODO: Add restaurants to the list
-                pass
+                # TODO✅: Add restaurants to the list
+                restaurant = Restaurant(
+                    name=hit.get("name"),
+                    street=hit.get("street"),
+                    municipality=hit.get("municipality"),
+                    full_address=hit.get("full_address"),
+                    score=hit.get("score"),
+                    type=restaurant_type,
+                )
+                restaurants.append(restaurant)
                 
             return restaurants
             

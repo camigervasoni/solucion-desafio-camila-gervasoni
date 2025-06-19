@@ -55,9 +55,9 @@ class QueryParser:
         
         # Check for best/worst filter
         best_and_worst = self._check_ranking_filter(new_query)
-        
+
         return new_query, food_type, location, best_and_worst
-        
+
     def _extract_food_type(self, query_lower: str) -> Tuple[str, Optional[RestaurantType]]:
         """
         Extract food type from query and clean the query
@@ -126,8 +126,11 @@ class QueryParser:
         
         # For unknown locations, title case it
         return " ".join(word.title() for word in location.split())
-        
+    
     def _check_ranking_filter(self, query: str) -> bool:
         """Check if query asks for best and worst restaurants"""
-        # TODO: Implement this
-        return False
+        # TODO✅: Implement this
+        query_lower = query.lower()
+        has_best = any(keyword in query_lower for keyword in self.ranking_keywords['best'])
+        has_worst = any(keyword in query_lower for keyword in self.ranking_keywords['worst'])
+        return has_best and has_worst
